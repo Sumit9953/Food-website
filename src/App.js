@@ -1313,14 +1313,14 @@ const resturantList = [
     }
 ];
 
-const ResturantCard = (props) => {
-  console.log(props.restaurant.data);
+const ResturantCard = ({name , cuisines, cloudinaryImageId,avgRating}) => {
+
   return (
     <div className="card">
-      <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"+ props.restaurant.data?.cloudinaryImageId } alt="" />
-      <h2>{props.restaurant.data?.name}</h2>
-      <h3>{props.restaurant.data?.cuisines.join(", ")}</h3>
-      <h4>{props.restaurant.data?.avgRating} star</h4>
+      <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"+ cloudinaryImageId } alt="" />
+      <h2>{name}</h2>
+      <h3>{cuisines.join(", ")}</h3>
+      <h4>{avgRating} star</h4>
     </div>
   );
 };
@@ -1328,18 +1328,11 @@ const ResturantCard = (props) => {
 const Body = () => {
   return (
     <div className="resturnat-lists">
-      <ResturantCard restaurant = {resturantList[0]} /> 
-      <ResturantCard restaurant = {resturantList[1]} /> 
-      <ResturantCard restaurant = {resturantList[2]} /> 
-      <ResturantCard restaurant = {resturantList[3]} /> 
-      <ResturantCard restaurant = {resturantList[4]} /> 
-      <ResturantCard restaurant = {resturantList[5]} /> 
-      <ResturantCard restaurant = {resturantList[0]} /> 
-      <ResturantCard restaurant = {resturantList[1]} /> 
-      <ResturantCard restaurant = {resturantList[2]} /> 
-      <ResturantCard restaurant = {resturantList[3]} /> 
-      <ResturantCard restaurant = {resturantList[4]} /> 
-      <ResturantCard restaurant = {resturantList[5]} /> 
+      {
+        resturantList.map((resturant) => {
+        return <ResturantCard {...resturant.data} key = {resturant.data.id} /> 
+        })
+      }
     </div>
   );
 };
