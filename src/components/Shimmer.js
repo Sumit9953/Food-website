@@ -1,12 +1,15 @@
-import React from 'react'
-import { ShimmerThumbnail } from "react-shimmer-effects";
+import React from "react";
 
 const Shimmer = () => {
   return (
-    <div>
-         <ShimmerThumbnail height={250} width={200} rounded />;
+    <div className="resturnat-lists">
+      {Array(20)
+        .fill("")
+        .map((e , index) => (
+          <div key={index} className="shimmer-card"></div>
+        ))}
     </div>
-  )
-}
+  );
+};
 
-export default Shimmer
+export default Shimmer;

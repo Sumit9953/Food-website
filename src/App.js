@@ -4,20 +4,24 @@ import Header from "./components/Header";
 //named import
 // import {Title} from './components/Header'
 
-import Body from "./components/Body";
 import Footer from "./components/Footer";
 
 import "./app.css";
+
+
+import { Outlet } from "react-router-dom";
 
 
 const App = () => {
   return (
     <>
       <Header />
-      <Body />
+      {/*All child component are in outlin provided by react-router-dom */}
+      <Outlet /> 
       <Footer />
     </>
   );
 };
+
 
 export default App;
