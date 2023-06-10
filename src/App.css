@@ -55,3 +55,8 @@ a{
     background-color: lightgray;
     margin: 20px;
 }
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+}
