@@ -44,15 +44,15 @@ const RestaurantMenu = () => {
           <h1>Menu</h1>
           <ul>
             {restaurantMenu?.map((item) => {
-              return <div>
-              <li key={item.card.info.id}>{item.card.info.name}</li>
+              return <div key={item.card.info.id}>
+              <li>{item.card.info.name}</li>
               <img src={IMG_CDN_URL + item.card.info.imageId} alt="" />
               </div>
             }
             )}
           </ul>
         </div>
-    </div>
+    </div> 
   )
 }
 
