@@ -1,5 +1,6 @@
 import resturantlogo from "../media/resturantlogo.png";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 // named export
 export const Title = () => {
@@ -16,9 +17,12 @@ export const Title = () => {
 };
 
 const Headrer = () => {
+  const isOnline = useOnline();
+  
   return (
     <div className="header">
       <Title />
+      
       <div className="nav-item">
         <ul className="list-item">
           <Link to="/">
@@ -32,10 +36,14 @@ const Headrer = () => {
           <Link to="/contact">
             <li>Contact</li>
           </Link>
+          <Link to="/instamart">
+            <li>Instamart</li>
+          </Link>
 
           <li>Cart</li>
         </ul>
       </div>
+      <h1>{isOnline ? "✅": "📴"}</h1>
     </div>
   );
 };
