@@ -40,10 +40,11 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-5 bg-gray-200 text-center ">
         <input
+        // style={{padding: "10px"}}
           type="text"
-          className="search-input"
+          className="w-1/3 outline-none bg-gray-200 hover:shadow-lg px-4 py-2 border-none rounded-full text-black "
           placeholder="Search"
           value={serachInput}
           onChange={(e) => {
@@ -51,12 +52,14 @@ const Body = () => {
           }}
         />
         <button
+        className="px-6 py-2 m-2 hover:bg-purple-500 bg-purple-300 rounded-full"
+        // style={{backgroundColor: "green" , padding: "10px"}}
           onClick={() => {
             const data = filterData(serachInput, allRestaurant);
 
             setFilteredRestaurants(data);
           }}
-          className="serach-btn"
+          
         >
           Search
         </button>
@@ -65,14 +68,14 @@ const Body = () => {
       {filteredRestaurants?.length === 0 ? (
         <h1>Not result</h1>
       ) : (
-        <div className="resturnat-lists">
+        <div className="flex bg-gray-200 items-center justify-center flex-wrap p-4 ">
           {filteredRestaurants.map((resturant) => {
             return (
               <Link
                 to={"/restaurant/" + resturant.data.id}
                 key={resturant.data.id}
               >
-                <RestaurantCard {...resturant.data} />;
+                <RestaurantCard {...resturant.data} />
               </Link>
             );
           })}

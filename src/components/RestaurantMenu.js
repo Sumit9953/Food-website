@@ -16,24 +16,25 @@ const RestaurantMenu = () => {
   const {restaurant , restaurantMenu} = restaurantData;
 
   return (!restaurant) ? <Shimmer /> : (
-    <div className='menu'>
+    <div className='flex mt-4 justify-between'>
     
-        <div>
-        <img src={IMG_CDN_URL + restaurant.cloudinaryImageId} alt="" />
-        <h2>{restaurant.name}</h2>
+        <div className='p-11 w-1/2 shadow-md rounded-lg'>
+        <img className='w-full' src={IMG_CDN_URL + restaurant.cloudinaryImageId} alt="" />
+        <h2 className='font-bold text-2xl'>{restaurant.name}</h2>
         <h2>{restaurant.costForTwoMessage}</h2>
         <h3>{restaurant.area}</h3>
         <h3>{restaurant.city}</h3>
         <h3>{restaurant.avgRating} stars</h3>
         </div>
-        <div>
-          <h1>Menu</h1>
-          <ul>
-            {restaurantMenu?.map((item) => {
-              return <div key={item.card.info.id}>
-              <li>{item.card.info.name}</li>
-              <img src={IMG_CDN_URL + item.card.info.imageId} alt="" />
-              </div>
+        <div className='w-1/2'>
+          <h1 className='font-bold text-3xl'>Menu</h1>
+          
+          <ul className='flex flex-wrap'>
+            {restaurantMenu?.map((item) => { 
+              return <div className='m-2 w-60'  key={item.card.info.id}>
+              <img className='w-60' src={IMG_CDN_URL + item.card.info.imageId} alt="" />
+              <li className='font-bold'>{item.card.info.name}</li>
+              </div> 
             }
             )}
           </ul>
