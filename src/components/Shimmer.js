@@ -2,7 +2,7 @@ import React from "react";
 
 const Shimmer = () => {
   return (
-    <div className="flex flex-wrap">
+    <div className="flex dark:bg-black flex-wrap">
       {Array(20)
         .fill("")
         .map((e , index) => (

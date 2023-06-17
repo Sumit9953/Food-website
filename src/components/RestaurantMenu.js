@@ -16,7 +16,7 @@ const RestaurantMenu = () => {
   const {restaurant , restaurantMenu} = restaurantData;
 
   return (!restaurant) ? <Shimmer /> : (
-    <div className='flex mt-4 justify-between'>
+    <div className='flex  dark:bg-black dark:text-white justify-between'>
     
         <div className='p-11 w-1/2 shadow-md rounded-lg'>
         <img className='w-full' src={IMG_CDN_URL + restaurant.cloudinaryImageId} alt="" />
@@ -36,7 +36,7 @@ const RestaurantMenu = () => {
               <li className='font-bold'>{item.card.info.name}</li>
               </div> 
             }
-            )}
+            ).slice(0, 10)}
           </ul>
         </div>
     </div> 

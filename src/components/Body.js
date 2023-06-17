@@ -40,7 +40,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="p-5 bg-gray-200 text-center ">
+      <div className="p-5 dark:text-white dark:bg-black bg-gray-200 text-center ">
         <input
         // style={{padding: "10px"}}
           type="text"
@@ -68,7 +68,7 @@ const Body = () => {
       {filteredRestaurants?.length === 0 ? (
         <h1>Not result</h1>
       ) : (
-        <div className="flex bg-gray-200 items-center justify-center flex-wrap p-4 ">
+        <div className="flex dark:text-white h-screen dark:bg-black bg-gray-200  justify-center flex-wrap p-4 ">
           {filteredRestaurants.map((resturant) => {
             return (
               <Link
