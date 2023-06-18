@@ -2,6 +2,7 @@ import resturantlogo from "../media/resturantlogo.png";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import { useState , useEffect , useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 
 // named export
@@ -22,6 +23,8 @@ const Headrer = () => {
   const isOnline = useOnline();
 
   const [theme, setTheme] = useState("light")
+
+  const {user} = useContext(UserContext);
 
   useEffect(() => {
     if(theme === "dark"){
@@ -60,6 +63,7 @@ const Headrer = () => {
           </Link>
         </ul>
         <h1 className="p-2 rounded-full">{isOnline ? "✅": "📴"}</h1>
+        {user.name}
         <button className="bg-gray-200 p-2 px-4 dark:text-black rounded-3xl" onClick={handleThemeSwitch}>
           Dark Mode
         </button>

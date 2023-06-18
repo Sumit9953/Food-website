@@ -4,12 +4,15 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   // serachText is a local state variable
   const [allRestaurant, setAllRestaurant] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [serachInput, setSerachInput] = useState(""); // To create state variable
+  const {user , setUser} = useContext(UserContext);
 
   useEffect(() => {
     //API Call
@@ -63,6 +66,10 @@ const Body = () => {
         >
           Search
         </button>
+        <input type="text" value={user.name} onChange={ e => setUser({
+          ...user,
+          name: e.target.value
+        })} />
       </div>
 
       {filteredRestaurants?.length === 0 ? (
