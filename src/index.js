@@ -12,6 +12,7 @@ import Profile from "./components/Profile";
 // import Instamart from './components/Instamart';
 import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
+import Cart from "./components/Cart";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 
@@ -50,6 +51,10 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart/>
       },
     ],
   },

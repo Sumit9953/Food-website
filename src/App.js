@@ -12,6 +12,9 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import UserContext from "./utils/UserContext";
 
+import { Provider } from "react-redux";
+import store from "./utils/store";
+
 const App = () => {
   const [user, setUser] = useState({
     name: "sumit",
@@ -19,7 +22,7 @@ const App = () => {
   });
 
   return (
-    <>
+    <Provider store={store}>
       <UserContext.Provider
         value={{
           user: user,
@@ -31,7 +34,7 @@ const App = () => {
         <Outlet />
         <Footer />
       </UserContext.Provider>
-    </>
+    </Provider>
   );
 };
 

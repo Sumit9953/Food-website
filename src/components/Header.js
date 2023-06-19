@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import { useState , useEffect , useContext } from "react";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 
 // named export
@@ -25,6 +26,9 @@ const Headrer = () => {
   const [theme, setTheme] = useState("light")
 
   const {user} = useContext(UserContext);
+
+  const cartItems = useSelector(store => store.cart.items)
+  console.log(cartItems);
 
   useEffect(() => {
     if(theme === "dark"){
@@ -59,7 +63,7 @@ const Headrer = () => {
             <li className=" bg-gray-100 text-stone-900 p-2 px-4 rounded-full font-bold hover:bg-gray-300 hover:fon text-xl">Instamart</li>
           </Link>
           <Link to="/cart">
-            <li className=" bg-gray-100 text-stone-900 p-2 px-4 rounded-full font-bold hover:bg-gray-300 hover:fon text-xl">Cart</li>
+            <li className=" bg-gray-100 text-stone-900 p-2 px-4 rounded-full font-bold hover:bg-gray-300 hover:fon text-xl">Cart - {cartItems.length} items</li>
           </Link>
         </ul>
         <h1 className="p-2 rounded-full">{isOnline ? "✅": "📴"}</h1>
